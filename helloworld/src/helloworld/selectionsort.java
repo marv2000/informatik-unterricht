@@ -10,7 +10,7 @@ import java.util.Random;
 public class selectionsort {
 static int berechnungen;
 static int speicherzugriffe;
-
+static int x;
 
 
 
@@ -20,7 +20,8 @@ static int speicherzugriffe;
 		BufferedReader r;
 		r=new BufferedReader(new InputStreamReader(System.in));
 		String aLine=r.readLine();
-		int n=Integer.parseInt(aLine);									//anzahl der Stellen 
+		int n=Integer.parseInt(aLine);//anzahl der Stellen 
+		x =n;
 		
 		System.out.print("Anfang der Zufallszahlen: ");
 		BufferedReader c;
@@ -126,12 +127,12 @@ static int speicherzugriffe;
 		return sorted;
 	}
 	public static void turn (int [] array){
-		int l=array.length;
-		int[] arrayturned = new int[array.length];
+		int l=x-1;
+		int[] arrayturned = new int[l];
 		
-		for (int i=0; i < array.length && l>0;i++){
+		for (int i=0; i < l && l>0;i++){
 			arrayturned[i]=array[l];
-			l--;
+			l=l-1;
 		}
 		
 		System.out.println("Sortiert andersherum");
