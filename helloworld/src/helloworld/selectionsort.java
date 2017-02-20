@@ -36,10 +36,13 @@ static int x;
 		int m=Integer.parseInt(cLine);									//ende von random
 		
 		int[] list = new int[n];  	 //array definieren
-		fill(list, l, m);				//array füllen
+		fill(list, l, m);//array füllen
+		int []  copy=list;
 		System.out.print("Das unsortierte Array: \n");output(list);    //array anzeigen
 		System.out.print("Stellen den Arrays: " + list.length + "\n"); //anzeigen der Stellen
-		selectionSortMethode(list);						//array sortieren
+		output(copy);
+				selectionSortMethode(list);	//array sortieren
+
 	}
 	
 	public static void selectionSortMethode(int[] array){  //SelectionSort Methode
@@ -127,12 +130,12 @@ static int x;
 		return sorted;
 	}
 	public static void turn (int [] array){
-		int l=x-1;
-		int[] arrayturned = new int[l];
+		int l;
+		int[] arrayturned = new int[array.length];
 		
-		for (int i=0; i < l && l>0;i++){
-			arrayturned[i]=array[l];
-			l=l-1;
+		for (int i=0; i < array.length;i++){
+			l =array.length-1-i;
+			arrayturned[l]=array[i];
 		}
 		
 		System.out.println("Sortiert andersherum");
