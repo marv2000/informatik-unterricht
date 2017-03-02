@@ -48,6 +48,7 @@ static int x;
 		System.out.print("Stellen den Arrays: " + list.length + "\n"); //anzeigen der Stellen
 		search(list,k);										//durchsuchen des unsortierten arrays
 		selectionSortMethode(list);						//array sortieren
+		bubblesort(list);
 	}
 	
 	
@@ -62,11 +63,11 @@ static int x;
 	
 	
 	public static void selectionSortMethode(int[] array){  //SelectionSort Methode
-		if(isSorted(array)){										//ausgabe von Sorted
-			System.out.print("Das Array ist sortiert!" + "\n");
-		} else {
-			System.out.print("Das Array ist noch nicht sortiert!" + "\n");
-		}
+//		if(isSorted(array)){										//ausgabe von Sorted
+//			System.out.print("Das Array ist sortiert!" + "\n");
+//		} else {
+//			System.out.print("Das Array ist noch nicht sortiert!" + "\n");
+//		}
 		
 		for (int i=0; i<array.length;i++){			//tauscht erste position mit gefundenem minimum; zählt erste Stelle hoch
 //			output(array);						ausgabe des array nach jedem schritt
@@ -165,7 +166,17 @@ static int x;
 			System.out.println("Anzahl von "+zahl+" in Array: "+anzahl);  //wie oft die Zahl vorkommt
 		}		
 	}
-	
+	public static void bubblesort(int [] array){
+		int length=array.length-2;
+		
+		for (int i=0; i<length;i++){
+			if (array[i]> array[i+1]){
+				swap(array,array[i],array[i+1]);
+			}
+			length=length-1;
+		}
+		output(array);
+	}
 
 	
 }
