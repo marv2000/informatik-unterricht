@@ -36,7 +36,7 @@ static int x;
 		int m=Integer.parseInt(cLine);									//ende von random
 		
 		System.out.print("Array durchsuchen nach der Zahl: ");
-		BufferedReader zahl ;												//durchsuchen des array
+		BufferedReader zahl ;												//search
 		zahl=new BufferedReader(new InputStreamReader(System.in));
 		String dLine=zahl.readLine();
 		int k=Integer.parseInt(dLine);
@@ -47,6 +47,7 @@ static int x;
 		System.out.print("Das unsortierte Array: \n");output(list);    //array anzeigen		
 		System.out.print("Stellen den Arrays: " + list.length + "\n"); //anzeigen der Stellen
 		search(list,k);										//durchsuchen des unsortierten arrays
+		System.out.println();
 		selectionSortMethode(list);						//array sortieren
 		bubblesort(list);
 	}
@@ -75,6 +76,7 @@ static int x;
 			if(i!=minimum)							//tauschen falls wert kleiner als position i
 				swap(array,i,minimum);				//tauschen
 		}
+		System.out.println("sortiert mit Selektionsort:");
 		output(array);								//ausgabe des arrays nach selection sort
 		if(isSorted(array)){						//prüfen ob array sotiert ist
 			System.out.print("Das Array ist sortiert!" + "\n");  		//ausgabe wenn sortiert
@@ -84,6 +86,7 @@ static int x;
 		System.out.print("Speicherzugriffe: "+speicherzugriffe + "\n");			//ausgabe der Speicherzugriffe
 		System.out.print("Berechnungen: " + berechnungen + "\n");			//ausgabe der Berechnungen
 		turn(array);														//drehen des sortiertem array
+		System.out.println();
 	}
 	
 	public static void swap (int[] array, int position1, int position2){  //Swap methode
@@ -175,6 +178,7 @@ static int x;
 			}
 			length=length-1;
 		}
+		System.out.println("sortiert mit bubblesort:");
 		output(array);
 	}
 
