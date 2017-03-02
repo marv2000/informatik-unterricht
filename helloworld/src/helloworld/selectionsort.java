@@ -50,6 +50,7 @@ static int x;
 		System.out.println();
 		selectionSortMethode(list);						//array sortieren
 		bubblesort(list);
+		
 	}
 	
 	
@@ -169,18 +170,27 @@ static int x;
 			System.out.println("Anzahl von "+zahl+" in Array: "+anzahl);  //wie oft die Zahl vorkommt
 		}		
 	}
-	public static void bubblesort(int [] array){
+	
+	
+	public static void bubblesort(int [] array){			//bubblesort
 		int length=array.length-2;
 		
-		for (int i=0; i<length;i++){
-			if (array[i]> array[i+1]){
-				swap(array,array[i],array[i+1]);
+		for (int i=0; i<length;i++){						
+			if (array[i]> array[i+1]){						//vergleichen von zwei stellen
+				swap(array,array[i],array[i+1]);			//tauschen wenn i größer ist als i+1
 			}
 			length=length-1;
 		}
 		System.out.println("sortiert mit bubblesort:");
 		output(array);
 	}
-
+	public static int tastatureingabe() throws IOException{
+		BufferedReader c;
+		c=new BufferedReader(new InputStreamReader(System.in));
+		String bLine=c.readLine();
+		int l=Integer.parseInt(bLine);
+		
+		return l;
+	}
 	
 }
