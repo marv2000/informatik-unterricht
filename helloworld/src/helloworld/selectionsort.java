@@ -31,19 +31,35 @@ static int x;
 		
 		System.out.print("Ende der Zufallszahlen: ");
 		BufferedReader d;
-		d=new BufferedReader(new InputStreamReader(System.in));
+		d=new BufferedReader(new InputStreamReader(System.in)); 
 		String cLine=d.readLine();
 		int m=Integer.parseInt(cLine);									//ende von random
 		
+		System.out.print("Array durchsuchen nach der Zahl: ");
+		BufferedReader zahl ;												//durchsuchen des array
+		zahl=new BufferedReader(new InputStreamReader(System.in));
+		String dLine=zahl.readLine();
+		int k=Integer.parseInt(dLine);
+		
+		
 		int[] list = new int[n];  	 //array definieren
-		fill(list, l, m);//array füllen
-		int []  copy=list;
-		System.out.print("Das unsortierte Array: \n");output(list);    //array anzeigen
+		fill(list, l, m);				//array füllen
+		System.out.print("Das unsortierte Array: \n");output(list);    //array anzeigen		
 		System.out.print("Stellen den Arrays: " + list.length + "\n"); //anzeigen der Stellen
-		output(copy);
-				selectionSortMethode(list);	//array sortieren
-
+		search(list,k);										//durchsuchen des unsortierten arrays
+		selectionSortMethode(list);						//array sortieren
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static void selectionSortMethode(int[] array){  //SelectionSort Methode
 		if(isSorted(array)){										//ausgabe von Sorted
@@ -53,44 +69,35 @@ static int x;
 		}
 		
 		for (int i=0; i<array.length;i++){			//tauscht erste position mit gefundenem minimum; zählt erste Stelle hoch
-			output(array);				
+//			output(array);						ausgabe des array nach jedem schritt
 			int minimum =findMinimum(array,i,array.length);		//suchen vom Minimum
 			if(i!=minimum)							//tauschen falls wert kleiner als position i
-				swap(array,i,minimum);
+				swap(array,i,minimum);				//tauschen
 		}
-		output(array);
-		if(isSorted(array)){
-			System.out.print("Das Array ist sortiert!" + "\n");
+		output(array);								//ausgabe des arrays nach selection sort
+		if(isSorted(array)){						//prüfen ob array sotiert ist
+			System.out.print("Das Array ist sortiert!" + "\n");  		//ausgabe wenn sortiert
 		} else {
-			System.out.print("Das Array ist noch nicht sortiert!" + "\n");
+			System.out.print("Das Array ist noch nicht sortiert!" + "\n"); 	//ausgabe wenn nichtsortiert
 		}
-		System.out.print("Speicherzugriffe: "+speicherzugriffe + "\n");
-		System.out.print("Berechnungen: " + berechnungen + "\n");
-		turn(array);
+		System.out.print("Speicherzugriffe: "+speicherzugriffe + "\n");			//ausgabe der Speicherzugriffe
+		System.out.print("Berechnungen: " + berechnungen + "\n");			//ausgabe der Berechnungen
+		turn(array);														//drehen des sortiertem array
 	}
 	
-
-	
-	
-	
-	
-	
-	
-	
-	
 	public static void swap (int[] array, int position1, int position2){  //Swap methode
-		int zwischenspeicher=array[position1];
-		array[position1]=array[position2];		
-		array[position2]=zwischenspeicher;
+		int zwischenspeicher=array[position1];			// speicher der ersten position in zwischenspeicher
+		array[position1]=array[position2];				// position 1 wird mit position 2 überschrieben
+		array[position2]=zwischenspeicher;				//position 2 wird mit dem zwischenspeicher (position 1)überschrieben	
 		speicherzugriffe++;					//anzahl aller Speicherzugriffe
 	}
 	
 	
 	public static int findMinimum(int[] array, int startIndex, int endIndex) { //find minimum
-		int currentMinimum = array[startIndex];				
+		int currentMinimum = array[startIndex];				//aller erste minimum ist startwert
 		int position = startIndex;
-		for (int i=startIndex;i<(endIndex);i++){
-			if(array[i]<currentMinimum){
+		for (int i=startIndex;i<(endIndex);i++){	//"schritt für schritt" durch das Array
+			if(array[i]<currentMinimum){			//vergleich von der stelle mit aktuellem minimum
 				position=i;							//position der neuen kleinsten Stelle
 				currentMinimum = array[i];			//neue kleinste Stelle
 				berechnungen++;						//Anzahl der Rechenschritte
@@ -116,29 +123,49 @@ static int x;
 	}
 	
 	
-	public static boolean isSorted(int[] array){
-		boolean sorted=true;
+	public static boolean isSorted(int[] array){    // Sorted(prüfen)
+		boolean sorted=true;					// erstellen der boolean Variable
 		int i=0;
 		int endIndex=array.length;
 		//for (int i=0; sorted && i<endIndex; i++){
-		while(sorted && i<endIndex-1){
-			if(array[i]>array[i+1]){
-				sorted=false;
+		while(sorted && i<endIndex-1){			//solange es sortier ist und i kleiner ist als das array lang ist	
+			if(array[i]>array[i+1]){			// falls die stelle i größer als i+1 ist
+				sorted=false;					// dann nicht sortiert
 			}
-			i++;
+			i++;								//nächste stelle
 		}
-		return sorted;
+		return sorted;							//rückgabe ob sortiert oder nicht
 	}
-	public static void turn (int [] array){
-		int l;
-		int[] arrayturned = new int[array.length];
+	public static void turn (int [] array){					//array umdrehen
+		int l=x-1;											//position altes array
+		int[] arrayturned = new int[l];						//neues array erstellen
 		
-		for (int i=0; i < array.length;i++){
-			l =array.length-1-i;
-			arrayturned[l]=array[i];
+		for (int i=0; i < l;i++){
+			arrayturned[i]=array[l];						// neues array füllen
+			l=l-1;
 		}
 		
 		System.out.println("Sortiert andersherum");
 		output(arrayturned);
 	}
+	public static void search (int [] array, int zahl){					//durchsuchen des Array
+		int anzahl =0;										//vorkommen der Zahl
+		System.out.println("Suche nach "+ zahl);
+		for (int i=0;i<array.length-1;i++ ){
+			if (array[i]== zahl){
+				System.out.print(i+ " ");				
+			anzahl=anzahl+1;
+			}
+		}	
+		System.out.println();
+		if (anzahl == 0){								//fals die Zahl nicht vorkommt
+			System.out.println("Nicht vorhanden");
+		}
+		else{
+			System.out.println("Anzahl von "+zahl+" in Array: "+anzahl);  //wie oft die Zahl vorkommt
+		}		
+	}
+	
+
+	
 }
