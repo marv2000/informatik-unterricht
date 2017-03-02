@@ -40,15 +40,7 @@ static int x;
 		zahl=new BufferedReader(new InputStreamReader(System.in));
 		String dLine=zahl.readLine();
 		int k=Integer.parseInt(dLine);
-		
-		System.out.println("Welcher Sortieralgorythmus?");
-		System.out.println("1.Selectionsort 2.Bubblesort");
-		BufferedReader lol ;												//search
-		lol=new BufferedReader(new InputStreamReader(System.in));
-		String eLine=lol.readLine();
-		int Sort=Integer.parseInt(eLine);
-		
-		
+				
 		int[] list = new int[n];  	 //array definieren
 		fill(list, l, m);				//array füllen
 		System.out.print("Das unsortierte Array: \n");output(list);    //array anzeigen		
@@ -56,16 +48,26 @@ static int x;
 		search(list,k);										//durchsuchen des unsortierten arrays
 		System.out.println();
 		
-		if (Sort ==1){
-			selectionSortMethode(list);
-		}
-		if (Sort==2){
-			bubblesort(list);
-		}
 		
+//		System.out.println("Welcher Sortieralgorythmus?");				//auswahl des Algorythmuses
+//		System.out.println("1.Selectionsort 2.Bubblesort");
+//		BufferedReader lol ;												//search
+//		lol=new BufferedReader(new InputStreamReader(System.in));
+//		String eLine=lol.readLine();
+//		int Sort=Integer.parseInt(eLine);
+//		
+//		if (Sort ==1){
+//			selectionSortMethode(list);
+//		}
+//		else if (Sort==2){
+//			bubblesort(list);
+//		}
+//		else {
+//			System.out.println("Auswahl zwischen 1 und 2!");
+//		}
 		
-//		selectionSortMethode(list);						//array sortieren
-//		bubblesort(list);
+		selectionSortMethode(list);						//array sortieren
+		bubblesort(list);
 		
 	}
 	
