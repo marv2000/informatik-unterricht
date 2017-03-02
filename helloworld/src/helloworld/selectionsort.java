@@ -46,7 +46,7 @@ static int x;
 		BufferedReader lol ;												//search
 		lol=new BufferedReader(new InputStreamReader(System.in));
 		String eLine=lol.readLine();
-		int Sort=Integer.parseInt(dLine);
+		int Sort=Integer.parseInt(eLine);
 		
 		
 		int[] list = new int[n];  	 //array definieren
