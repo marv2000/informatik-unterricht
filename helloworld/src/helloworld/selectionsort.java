@@ -90,6 +90,30 @@ static int x;
 		System.out.println();
 	}
 	
+	public static void bubblesort(int [] array){			//bubblesort
+			int length=array.length-2;
+			for (int i=0; i<length;i++){						
+				if (array[i]> array[i+1]){						//vergleichen von zwei stellen
+					swap(array,array[i],array[i+1]);			//tauschen wenn i größer ist als i+1
+				}
+				length=length-1;
+			}
+			System.out.println("sortiert mit bubblesort:");
+			output(array);
+	//		System.out.println("Anzahl an Tauschvorgäne: "+speicher);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 	public static void swap (int[] array, int position1, int position2){  //Swap methode
 		int zwischenspeicher=array[position1];			// speicher der ersten position in zwischenspeicher
 		array[position1]=array[position2];				// position 1 wird mit position 2 überschrieben
@@ -169,21 +193,7 @@ static int x;
 		else{
 			System.out.println("Anzahl von "+zahl+" in Array: "+anzahl);  //wie oft die Zahl vorkommt
 		}		
-	}
-	
-	
-	public static void bubblesort(int [] array){			//bubblesort
-		int length=array.length-2;
-		
-		for (int i=0; i<length;i++){						
-			if (array[i]> array[i+1]){						//vergleichen von zwei stellen
-				swap(array,array[i],array[i+1]);			//tauschen wenn i größer ist als i+1
-			}
-			length=length-1;
-		}
-		System.out.println("sortiert mit bubblesort:");
-		output(array);
-	}
+	}		
 	public static int tastatureingabe() throws IOException{
 		BufferedReader c;
 		c=new BufferedReader(new InputStreamReader(System.in));
@@ -191,6 +201,5 @@ static int x;
 		int l=Integer.parseInt(bLine);
 		
 		return l;
-	}
-	
+	}	
 }
