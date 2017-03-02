@@ -120,18 +120,6 @@ static int x;
 			output(array);
 	//		System.out.println("Anzahl an Tauschvorgäne: "+speicher);
 		}
-
-
-
-
-
-
-
-
-
-
-
-
 	public static void swap (int[] array, int position1, int position2){  //Swap methode
 		int zwischenspeicher=array[position1];			// speicher der ersten position in zwischenspeicher
 		array[position1]=array[position2];				// position 1 wird mit position 2 überschrieben
