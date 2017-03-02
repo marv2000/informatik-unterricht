@@ -62,9 +62,6 @@ static int x;
 		if (Sort==2){
 			bubblesort(list);
 		}
-		else {
-			System.out.println("auswahl zwischen 1 und 2!");
-		}
 		
 		
 //		selectionSortMethode(list);						//array sortieren
