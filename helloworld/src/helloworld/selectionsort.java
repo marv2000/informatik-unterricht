@@ -200,7 +200,16 @@ public static void shakersort(int[] array){
 	
 	
 }
-public static void gnomsort(){
+public static void gnomsort(int []array){
+	int i=0;
+	while(isSorted(array)!=true && i<array.length-2){
+		if (array[i]<array[i+1]){
+			i++;
+		}
+		else{
+			while (array[i])
+		}
+	}
 	
 }
 }
