@@ -125,6 +125,17 @@ public static int findMinimum(int[] array, int startIndex, int endIndex) { //fin
 	}
 	return position;							//return position of minimums
 }	
+public static int findeMaximum(int[] array, int startIndex, int endIndex) { //find maximum
+	int currentMaximum = array[startIndex];		//aller erste maximum ist startwert
+	int position = startIndex;
+	for (int i=startIndex;i<(endIndex);i++){	//"schritt für schritt" durch das Array
+		if(array[i]>currentMaximum){			//vergleich von der stelle mit aktuellem maximum
+			position=i;							//position der neuen größten Stelle
+			currentMaximum = array[i];			//neue größten Stelle
+		}
+	}
+	return position;							//return position of minimums
+}	
 
 public static void output(int[] array){  //output methode
 	for (int c=0; c<array.length; c++){
@@ -194,7 +205,18 @@ public static int tastatureingabe() throws IOException{
 	return l;		
 }	
 public static void shakersort(int[] array){
-	
+	int untereGrenze=0;
+	int obereGrenze=array.length-1;
+	for (int i=0;untereGrenze<=obereGrenze;i++){
+		if ((i%2)!=0){
+			swap(array,findeMaximum(array,untereGrenze,obereGrenze),obereGrenze);
+			obereGrenze=obereGrenze-1;
+		}
+		if ((i%2)==0){
+			swap (array,findeMinimum(array,untereGrenze,obereGrenze),untereGrenze);
+			untereGrenze++;
+		}
+	}
 	
 	
 	
@@ -207,7 +229,7 @@ public static void gnomsort(int []array){
 			i++;
 		}
 		else{
-			while (array[i])
+			
 		}
 	}
 	
