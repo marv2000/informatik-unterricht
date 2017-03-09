@@ -208,22 +208,19 @@ public static int tastatureingabe() throws IOException{
 	return l;		
 }	
 public static void shakersort(int[] array){
-	int untereGrenze=0;
-	int obereGrenze=array.length-1;
-	for (int i=0;untereGrenze<=obereGrenze;i++){
-		if ((i%2)!=0){
+	int untereGrenze=0;										//erste untere Grenze
+	int obereGrenze=array.length-1;							//erste obere Grenze
+	for (int i=0;untereGrenze<=obereGrenze;i++){			
+		if ((i%2)!=0){										//tausche Maximum mit oberer Grenze
 			swap(array,findeMaximum(array,untereGrenze,obereGrenze),obereGrenze);
-			obereGrenze=obereGrenze-1;
+			obereGrenze=obereGrenze-1;						//obere Grenze -1
 		}
-		if ((i%2)==0){
+		if ((i%2)==0){										//tausche Minimum mit unterer Grenze
 			swap (array,findMinimum(array,untereGrenze,obereGrenze),untereGrenze);
-			untereGrenze++;
+			untereGrenze++;									//untere Grenze +1
 		}		
 	}
-	output(array);
-	
-	
-	
+	output(array);											//sortiertes array ausgeben
 }
 public static void gnomsort(int []array){
 	int i=0;
