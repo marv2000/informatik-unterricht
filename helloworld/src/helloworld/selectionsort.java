@@ -45,7 +45,7 @@ public static void main(String[] args) throws IOException {
 public static void Auswahl(int []list) throws IOException{       //auswahl des Algorythmuses
 	
 	System.out.println("Welcher Sortieralgorythmus?");				
-	System.out.println("1.Selectionsort 2.Bubblesort");
+	System.out.println("1.Selectionsort 2.Bubblesort 3.Shakersort");
 	int Sort = tastatureingabe();
 	
 	if (Sort ==1){
@@ -59,8 +59,11 @@ public static void Auswahl(int []list) throws IOException{       //auswahl des A
 		System.out.println("\n"+"\n"+"\n"+"\n"+"\n zum Vergleich:");
 		selectionSortMethode(list);
 	}
-	else if (Sort<1||Sort>2){
-		System.out.println("Auswahl zwischen 1 und 2!");
+	else if(Sort==3){
+		shakersort(list);
+	}
+	else if (Sort<1||Sort>3){
+		System.out.println("Auswahl zwischen 1 und 3!");
 	}
 	else{
 		//blupp
@@ -213,11 +216,11 @@ public static void shakersort(int[] array){
 			obereGrenze=obereGrenze-1;
 		}
 		if ((i%2)==0){
-			swap (array,findeMinimum(array,untereGrenze,obereGrenze),untereGrenze);
+			swap (array,findMinimum(array,untereGrenze,obereGrenze),untereGrenze);
 			untereGrenze++;
-		}
+		}		
 	}
-	
+	output(array);
 	
 	
 	
