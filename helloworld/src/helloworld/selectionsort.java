@@ -30,16 +30,13 @@ public static void main(String[] args) throws IOException {
 	int[] list = new int[n];  	 										//array definieren
 	fill(list, l, m);													//array füllen
 	System.out.print("Das unsortierte Array: \n");output(list);    		//array anzeigen		
-//	System.out.print("Stellen den Arrays: " + list.length + "\n");	 	//anzeigen der Stellen
+	System.out.print("Stellen den Arrays: " + list.length + "\n");	 	//anzeigen der Stellen
 	search(list,k);														//durchsuchen des unsortierten arrays
 	System.out.println();
 	gnomsort(list);
 	Auswahl(list);
 	
 }
-
-
-
 
 
 
@@ -231,13 +228,13 @@ public static void shakersort(int[] array){
 
 public static void gnomsort(int []array){
 	for (int i=1;i<array.length-1;i++){
-//		if (array[i]>array[i--]){
-//			int falsch=i;
-//				while(falsch<falsch-1){
-//					swap(array,falsch,falsch-1);
-//					falsch--;
-//			}
-//		}
+		if (array[i]<array[i--]){
+			int falsch=i;
+				while(falsch<falsch-1){
+					swap(array,falsch,falsch-1);
+					falsch--;
+			}
+		}
 	output(array);
 	}
 	
