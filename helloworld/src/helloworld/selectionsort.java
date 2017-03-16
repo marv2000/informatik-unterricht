@@ -30,9 +30,10 @@ public static void main(String[] args) throws IOException {
 	int[] list = new int[n];  	 										//array definieren
 	fill(list, l, m);													//array füllen
 	System.out.print("Das unsortierte Array: \n");output(list);    		//array anzeigen		
-	System.out.print("Stellen den Arrays: " + list.length + "\n");	 	//anzeigen der Stellen
+//	System.out.print("Stellen den Arrays: " + list.length + "\n");	 	//anzeigen der Stellen
 	search(list,k);														//durchsuchen des unsortierten arrays
 	System.out.println();
+	gnomsort(list);
 	Auswahl(list);
 	
 }
@@ -66,7 +67,7 @@ public static void Auswahl(int []list) throws IOException{       //auswahl des A
 		System.out.println("Auswahl zwischen 1 und 3!");
 	}
 	else{
-		//blupp
+		  //blupp
 	}
 }				
 
@@ -89,6 +90,7 @@ public static void selectionSortMethode(int[] array){  //SelectionSort Methode
 	System.out.print("Berechnungen: " + berechnungen + "\n");			//ausgabe der Berechnungen
 //	turn(array);														//drehen des sortiertem array
 }
+
 public static void selectionsort2 (int[]array){
 	for (int i=0; i<array.length;i++){					//tauscht erste position mit gefundenem minimum; zählt erste Stelle hoch
 //		output(array);									//ausgabe des array nach jedem schritt
@@ -109,6 +111,7 @@ public static void bubblesort(int [] array){			//bubblesort
 		System.out.println("sortiert mit bubblesort:");
 		output(array);
 	}
+
 public static void swap (int[] array, int position1, int position2){  //Swap methode
 	int zwischenspeicher=array[position1];			// speicher der ersten position in zwischenspeicher
 	array[position1]=array[position2];				// position 1 wird mit position 2 überschrieben
@@ -128,6 +131,7 @@ public static int findMinimum(int[] array, int startIndex, int endIndex) { //fin
 	}
 	return position;							//return position of minimums
 }	
+
 public static int findeMaximum(int[] array, int startIndex, int endIndex) { //find maximum
 	int currentMaximum = array[startIndex];		//aller erste maximum ist startwert
 	int position = startIndex;
@@ -199,6 +203,7 @@ public static void search (int [] array, int zahl){					//durchsuchen des Array
 		System.out.println("Anzahl von "+zahl+" in Array: "+anzahl);  //wie oft die Zahl vorkommt
 	}		
 }		
+
 public static int tastatureingabe() throws IOException{
 	BufferedReader c;
 	c=new BufferedReader(new InputStreamReader(System.in));
@@ -207,6 +212,7 @@ public static int tastatureingabe() throws IOException{
 
 	return l;		
 }	
+
 public static void shakersort(int[] array){
 	int untereGrenze=0;										//erste untere Grenze
 	int obereGrenze=array.length-1;							//erste obere Grenze
@@ -222,16 +228,19 @@ public static void shakersort(int[] array){
 	}
 	output(array);											//sortiertes array ausgeben
 }
+
 public static void gnomsort(int []array){
-	int i=0;
-	while(isSorted(array)!=true && i<array.length-2){
-		if (array[i]<array[i+1]){
-			i++;
-		}
-		else{
-			
-		}
+	for (int i=1;i<array.length-1;i++){
+//		if (array[i]>array[i--]){
+//			int falsch=i;
+//				while(falsch<falsch-1){
+//					swap(array,falsch,falsch-1);
+//					falsch--;
+//			}
+//		}
+	output(array);
 	}
 	
+		
 }
 }
