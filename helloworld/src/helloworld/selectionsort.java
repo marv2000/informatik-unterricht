@@ -114,8 +114,8 @@ public static void swap (int[] array, int position1, int position2){  //Swap met
 	array[position1]=array[position2];				// position 1 wird mit position 2 überschrieben
 	array[position2]=zwischenspeicher;				//position 2 wird mit dem zwischenspeicher (position 1)überschrieben	
 	speicherzugriffe++;								//anzahl aller Speicherzugriffe
+	System.out.println("blupp");
 }	
-
 public static int findMinimum(int[] array, int startIndex, int endIndex) { //find minimum
 	int currentMinimum = array[startIndex];		//aller erste minimum ist startwert
 	int position = startIndex;
@@ -128,7 +128,6 @@ public static int findMinimum(int[] array, int startIndex, int endIndex) { //fin
 	}
 	return position;							//return position of minimums
 }	
-
 public static int findeMaximum(int[] array, int startIndex, int endIndex) { //find maximum
 	int currentMaximum = array[startIndex];		//aller erste maximum ist startwert
 	int position = startIndex;
@@ -140,7 +139,6 @@ public static int findeMaximum(int[] array, int startIndex, int endIndex) { //fi
 	}
 	return position;							//return position of minimums
 }	
-
 public static void output(int[] array){  //output methode
 	for (int c=0; c<array.length; c++){
 		System.out.print("["+array[c]+"]"); //output complete Arrays
@@ -155,7 +153,6 @@ public static void fill(int[] array,int start,int ende){  //fill array with rand
 	}
 	System.out.print("\n");
 }	
-
 public static boolean isSorted(int[] array){    // Sorted(prüfen)
 	boolean sorted=true;					// erstellen der boolean Variable
 	int i=0;
@@ -200,8 +197,7 @@ public static void search (int [] array, int zahl){					//durchsuchen des Array
 		System.out.println("Anzahl von "+zahl+" in Array: "+anzahl);  //wie oft die Zahl vorkommt
 	}		
 }		
-
-public static int tastatureingabe() throws IOException{
+public static int tastatureingabe() throws IOException{				//Tastatur eingsbe
 	BufferedReader c;
 	c=new BufferedReader(new InputStreamReader(System.in));
 	String bLine=c.readLine();
@@ -209,8 +205,7 @@ public static int tastatureingabe() throws IOException{
 
 	return l;		
 }	
-
-public static void shakersort(int[] array){
+public static void shakersort(int[] array){							//shakersort
 	int untereGrenze=0;										//erste untere Grenze
 	int obereGrenze=array.length-1;							//erste obere Grenze
 	for (int i=0;untereGrenze<=obereGrenze;i++){			
@@ -226,18 +221,20 @@ public static void shakersort(int[] array){
 	output(array);											//sortiertes array ausgeben
 }
 
+
+
 public static void gnomsort(int []array){
 	for (int i=1;i<array.length-1;i++){
 		if (array[i]<array[i--]){
 			int falsch=i;
-				while(falsch<falsch-1){
+				while(array[falsch]==array[falsch-1]){
 					swap(array,falsch,falsch-1);
-					falsch--;
+					//falsch--;
 			}
 		}
-	output(array);
+	
 	}
 	
-		
+		output(array);
 }
 }
