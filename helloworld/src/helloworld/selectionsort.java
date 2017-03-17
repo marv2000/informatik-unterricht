@@ -224,17 +224,18 @@ public static void shakersort(int[] array){							//shakersort
 
 
 public static void gnomsort(int []array){
-	for (int i=1;i<array.length-1;i++){
-		if (array[i]<array[i--]){
-			int falsch=i;
-				while(array[falsch]==array[falsch-1]){
-					swap(array,falsch,falsch-1);
-					//falsch--;
-			}
-		}
-	
+	for (int i=1;i<=array.length-1;i++){
+//		if (array[i]<array[i--]){
+//			int falsch=i;
+//				while(array[falsch]==array[falsch-1]){
+//					swap(array,falsch,falsch-1);
+//					//falsch--;
+//			}
+//		}
+		System.out.println(i+" ");
+	output(array);
 	}
 	
-		output(array);
+		
 }
 }
