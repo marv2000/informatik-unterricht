@@ -52,23 +52,22 @@ public class Primzahlen {
 			return l;		
 		}
 		public static void ausnahme(int n ){
-			if (n>7){
+			if (n>=7){
 				System.out.println("2, 3, 5, 7, ");	
 			}
-			else if(n<7){
+			else if(n<7&&n>=5){
 				System.out.println("2, 3, 5, ");	
 			}
-			else if (n<5){
+			else if (n<5&&n>=3){
 				System.out.println("2, 3, ");	
 
 			}
-			else if (n<3){
+			else if (n<3&&n>=2){
 				System.out.println("2");	
 
 			}
-			else if(n<2){
+			else if(n<=2){
 				System.out.println("keine Primzahl gefunden");	
-
 			}
 		}
 }
