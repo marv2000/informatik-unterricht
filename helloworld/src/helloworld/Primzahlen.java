@@ -39,7 +39,7 @@ static int AnzahlderPrimzahlen=4;
 				if (list[i]!=0){									//falls nicht null dann Primzahl
 					System.out.print(list[i]+", ");					//Primzahken ausgeben
 					AnzahlderPrimzahlen++;
-					tester(i);
+					tester(list[i]);
 				}
 			}
 		}
