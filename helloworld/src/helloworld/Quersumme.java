@@ -7,16 +7,27 @@ import java.io.InputStreamReader;
 public class Quersumme {
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("Wähle eine Zahl zwischen 10 und 99");
-		int Zahl= tastatureingabe();
-		if (Zahl<10){
-			System.out.println(Zahl);
+		System.out.println("Quersumme: 1 / Fakultät: 2");
+		int x=tastatureingabe();
+		if ( x==1){
+			System.out.println("Wähle eine Zahl zwischen 10 und 99");
+			int Zahl= tastatureingabe();
+			if (Zahl<10){
+				System.out.println(Zahl);
+			}
+			else{
+				int l=quersumme(Zahl);
+				System.out.println(l);
+			}
 		}
-		else{
-			int l=quersumme(Zahl);
-			System.out.println(l);
+		if(x==2){
+			System.out.println("Wähle eine Zahl");
+			int Zahl =tastatureingabe();
+			System.out.println(Zahl+"!= "+fakultät(Zahl));
 		}
-		
+		if (x>2||x<1){
+			System.out.println("hasch es nid gecheckt, oder?");
+		}
 		
 	}
 	public static int tastatureingabe() throws IOException{				//Tastatur eingsbe
@@ -34,5 +45,12 @@ public class Quersumme {
 			int quersumme=summand1+summand2;
 			return quersumme;
 		
+	}
+	public static double fakultät(int n){
+		double e=1;
+		for (int i=1; i<=n;i++){
+			e=e*i;
+		}
+		return e;
 	}
 }
