@@ -7,8 +7,10 @@ import java.io.InputStreamReader;
 public class Quersumme {
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("Quersumme: 1 / Fakultät: 2");
+		while(true){
+		System.out.println("Quersumme: 1 / Fakultät: 2 / Multiplizieren: 3 / Dividieren: 4");
 		int x=tastatureingabe();
+		int anzahl=4;
 		if ( x==1){
 			System.out.println("Wähle eine Zahl zwischen 10 und 99");
 			int Zahl= tastatureingabe();
@@ -25,10 +27,27 @@ public class Quersumme {
 			int Zahl =tastatureingabe();
 			System.out.println(Zahl+"!= "+fakultät(Zahl));
 		}
-		if (x>2||x<1){
+		if(x==3){
+			System.out.println("Wähle eine Zahl a");
+			int Zahl1 =tastatureingabe();
+			System.out.println("Wähle eine Zahl b");
+			int Zahl2 =tastatureingabe();
+			System.out.println(Zahl1 +"*"+Zahl2+"= "+multiplikation(Zahl1, Zahl2));
+			
+		}
+		if(x==4){
+			System.out.println("Wähle eine Zahl a");
+			int Zahl1 =tastatureingabe();
+			System.out.println("Wähle eine Zahl b");
+			int Zahl2 =tastatureingabe();
+			System.out.println(Zahl1 +"/"+Zahl2+"= "+division(Zahl1, Zahl2));
+			
+		}
+		if (x>anzahl||x<1){
 			System.out.println("hasch es nid gecheckt, oder?");
 		}
-		
+	
+		}
 	}
 	public static int tastatureingabe() throws IOException{				//Tastatur eingsbe
 		BufferedReader c;
@@ -53,4 +72,34 @@ public class Quersumme {
 		}
 		return e;
 	}
+	
+	public static int multiplikation (int q ,int p){
+		int ergebnis=p;
+		for (int i=1; i<q; i++){
+			ergebnis=ergebnis +p;
+		}
+		return ergebnis;	
+	}
+	public static int division(int q, int p){
+		int ergebnis=q;
+		int Anzahl=0;
+		int Rest=0;
+		while(ergebnis>0){
+			ergebnis= ergebnis-p;
+			Anzahl++;
+		}
+		if (ergebnis<0){
+			Anzahl--;
+			ergebnis=ergebnis+p;
+			
+			while (Rest<ergebnis){
+				Rest++;
+			}
+			System.out.println("Rest: "+Rest);
+		}
+		
+		return Anzahl;
+		
+	}
+	
 }
